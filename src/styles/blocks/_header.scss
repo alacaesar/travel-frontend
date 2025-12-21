@@ -1,0 +1,28 @@
+header {
+    padding: 16px;
+    align-items: center;
+    text-align: center;
+
+    .logo {
+        text-align: center;
+
+        h2 {
+            background-image: url(/the-gal-abroad.png);
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: center;
+            font-size: 3em;
+            display: block;
+            line-height: 1;
+            color: transparent
+        }
+    }
+
+
+
+    nav ul {
+        display: flex;
+        flex-direction: row;
+        display: none;
+    }
+}

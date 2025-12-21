@@ -1,0 +1,79 @@
+@use "../variables" as vars;
+
+
+.travel-entry-detail {
+    padding: 2rem 0;
+
+    header {
+        display: flex;
+        gap: 2rem;
+        margin-bottom: 2rem;
+
+        @media (max-width: vars.$breakpoint-desktop) {
+            flex-direction: column;
+        }
+
+        figure {
+            flex: 1;
+            margin: 0;
+
+            img {
+                width: 100%;
+                height: auto;
+                border-radius: 4px;
+            }
+        }
+
+        >div {
+            flex: 1;
+
+            h1 {
+                @include use(h1);
+                margin-bottom: 1rem;
+            }
+
+            .meta {
+                display: flex;
+                flex-direction: column;
+                gap: 0.5rem;
+                list-style: none;
+                padding: 0;
+
+                li {
+                    display: flex;
+                    align-items: center;
+                }
+            }
+        }
+    }
+
+    .location-container {
+        margin-bottom: 2rem;
+
+        .google-maps-link {
+            margin-top: 0.5rem;
+            text-align: right;
+
+            a {
+                color: vars.$color-primary; // Assuming primary color or #0070f3
+                text-decoration: none;
+                font-weight: 600;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+
+    .entry-content {
+        .lead {
+            font-size: 1.25rem;
+            line-height: 1.6;
+        }
+
+        .blocks-content {
+            margin-top: 2rem;
+        }
+    }
+}

@@ -1,0 +1,22 @@
+//colors
+$color-white: #fff;
+$color-light: #f3f3f0;
+$color-dark: #e6e6e1;
+$color-gold: #b4a37c;
+$color-silver: #9c9c96;
+$color-grey: #302d2c;
+$color-black: #14110f;
+$color-primary: #0070f3;
+$color-grey-light: #eee;
+$color-grey-medium: #666;
+
+//breakpoints
+$breakpoint-mobile: 480px;
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1024px;
+
+//spacing
+$space-margin-x: 5.9vw;
+$space-margin-y: min($space-margin-x, 56px);
+$space-one: 35.3vw;
+$space-two: 64.7vw;

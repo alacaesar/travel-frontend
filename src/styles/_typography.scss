@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Climate+Crisis:YEAR@1979&family=Dela+Gothic+One&family=Host+Grotesk:ital,wght@0,300..800;1,300..800&display=swap');
+
+// Font families
+$font-primary: "Dela Gothic One", sans-serif;
+$font-secondary: "Climate Crisis", sans-serif;
+$font-body: "Host Grotesk", sans-serif;
+
+// Font weights
+$fw-normal: 400;
+$fw-medium: 500;
+$fw-bold: 600;
+
+// Font sets
+$font-sets: (
+    mobile: (extra: (font-family: $font-primary,
+            font-size: 48,
+            line-height: 1,
+            font-weight: $fw-normal,
+        ),
+        menu: (font-family: $font-primary,
+            font-size: 24,
+            line-height: 1s,
+            font-weight: $fw-normal,
+        ),
+        h1: (font-family: $font-primary,
+            font-size: 48,
+            line-height: 1,
+            font-weight: $fw-normal,
+        ),
+        h2: (font-family: $font-primary,
+            font-size: 24,
+            line-height: 1s,
+            font-weight: $fw-normal,
+        ),
+        h3: (font-family: $font-primary,
+            font-size: 24,
+            line-height: 1s,
+            font-weight: $fw-normal,
+        ),
+        large: (font-family: $font-body,
+            font-size: 32,
+            line-height: 1,
+            font-weight: $fw-normal,
+        ),
+        body: (font-family: $font-body,
+            font-size: 20,
+            line-height: 1.2em,
+            font-weight: $fw-normal,
+        ),
+        small: (font-family: $font-body,
+            font-size: 14,
+            line-height: 1,
+            font-weight: $fw-normal,
+        ),
+    ),
+    desktop: (extra: (font-family: $font-primary,
+            font-size: 104,
+            line-height: 1,
+            font-weight: $fw-normal,
+        ),
+        menu: (font-family: $font-primary,
+            font-size: 80,
+            line-height: 1,
+            font-weight: $fw-normal,
+        ),
+        h1: (font-family: $font-secondary,
+            font-size: 60,
+            line-height: 1,
+            font-weight: $fw-normal,
+        ),
+        h2: (font-family: $font-secondary,
+            font-size: 40,
+            line-height: 1,
+            font-weight: $fw-normal,
+        ),
+        h3: (font-family: $font-primary,
+            font-size: 24,
+            line-height: 1,
+            font-weight: $fw-normal,
+        ),
+        large: (font-family: $font-body,
+            font-size: 18,
+            line-height: 1,
+            font-weight: $fw-normal,
+        ),
+        body: (font-family: $font-body,
+            font-size: 16,
+            line-height: 1.2em,
+            font-weight: $fw-normal,
+        ),
+        small: (font-family: $font-body,
+            font-size: 12,
+            line-height: 1,
+            font-weight: $fw-normal,
+        ),
+    ),
+);
+
+// Helper functions
+// Get a font property from the map
+@function get-font-property($breakpoint, $style, $property) {
+    @return map-get(map-get(map-get($font-sets, $breakpoint), $style),
+        $property );
+}
+
+// Convert pixels to rem
+@function px-to-rem($px) {
+    @return #{$px / 16}rem;
+}
+
+// Main mixin
+@mixin use($style) {
+    // get mobile properties
+    $mobile-props: map-get(map-get($font-sets, mobile), $style);
+
+    // Apply mobile styles
+    font-family: map-get($mobile-props, font-family);
+    font-size: px-to-rem(map-get($mobile-props, font-size));
+    line-height: map-get($mobile-props, line-height);
+    font-weight: map-get($mobile-props, font-weight);
+
+    // get desktop properties
+    $desktop-props: map-get(map-get($font-sets, desktop), $style);
+
+    // Apply desktop styles
+    @media (min-width: vars.$breakpoint-desktop) {
+        font-family: map-get($desktop-props, font-family);
+        font-size: px-to-rem(map-get($desktop-props, font-size));
+        line-height: map-get($desktop-props, line-height);
+        font-weight: map-get($desktop-props, font-weight);
+    }
+}

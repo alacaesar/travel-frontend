@@ -1,0 +1,17 @@
+@use "../variables" as vars;
+
+
+.activities-list-page {
+    padding: 2rem 0;
+
+    h1 {
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+        @include use(h1);
+    }
+
+    .no-activities {
+        @include use(body); // Assuming 'lead' or 'body'
+        font-size: 1.25rem;
+    }
+}
