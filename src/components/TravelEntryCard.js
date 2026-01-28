@@ -3,9 +3,11 @@ import Link from 'next/link';
 // import './TravelEntryCard.scss'; // Assuming we handle styles globally or modules. Let's use inline or global for now to fit existing sass structure?
 // Better to create a scss file for it.
 
+import { getStrapiMedia } from '../lib/helpers';
+
 const TravelEntryCard = ({ entry }) => {
     const { title, description, coverImage, country, date, category } = entry;
-    const imageUrl = coverImage?.url ? `${process.env.NEXT_PUBLIC_STRAPI_API_URL || 'http://localhost:1337'}${coverImage.url}` : '/placeholder.jpg';
+    const imageUrl = getStrapiMedia(coverImage?.url) || '/placeholder.jpg';
 
     return (
         <div className="travel-entry-card">

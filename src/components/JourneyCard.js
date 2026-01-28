@@ -1,9 +1,11 @@
 import React from 'react';
 import Link from 'next/link';
 
+import { getStrapiMedia } from '../lib/helpers';
+
 const JourneyCard = ({ journey }) => {
     const { title, description, coverImage, slug, travel_entries } = journey;
-    const imageUrl = coverImage?.url ? `${process.env.NEXT_PUBLIC_STRAPI_API_URL || 'http://localhost:1337'}${coverImage.url}` : '/placeholder.jpg';
+    const imageUrl = getStrapiMedia(coverImage?.url) || '/placeholder.jpg';
 
     return (
         <div className="travel-entry-card journey-card">

@@ -10,6 +10,7 @@ export async function fetchAPI(path, options = {}) {
       ...options.headers,
     },
     ...options,
+    cache: "no-store",
   });
 
   if (!response.ok) {

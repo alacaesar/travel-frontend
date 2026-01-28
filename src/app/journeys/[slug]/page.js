@@ -1,6 +1,7 @@
 import { fetchAPI } from "@/lib/strapi";
 import TravelEntryCard from "@/components/TravelEntryCard";
 import { notFound } from "next/navigation";
+import { getStrapiMedia } from "@/lib/helpers";
 
 export async function generateMetadata({ params }) {
     const { slug } = await params;
@@ -33,9 +34,7 @@ export default async function JourneyDetailPage({ params }) {
         notFound();
     }
 
-    const imageUrl = journey.coverImage?.url
-        ? `${process.env.NEXT_PUBLIC_STRAPI_API_URL || 'http://localhost:1337'}${journey.coverImage.url}`
-        : '/placeholder.jpg';
+    const imageUrl = getStrapiMedia(journey.coverImage?.url) || '/placeholder.jpg';
 
     return (
         <article className="journey-detail container">

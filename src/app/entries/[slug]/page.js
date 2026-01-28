@@ -3,6 +3,7 @@ import LocationMap from "@/components/LocationMap";
 import { BlocksRenderer } from '@strapi/blocks-react-renderer';
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import { getStrapiMedia } from "@/lib/helpers";
 
 // Generate metadata for the page
 export async function generateMetadata({ params }) {
@@ -28,9 +29,7 @@ export default async function TravelEntryValidPage({ params }) {
         notFound();
     }
 
-    const imageUrl = entry.coverImage?.url
-        ? `${process.env.NEXT_PUBLIC_STRAPI_API_URL || 'http://localhost:1337'}${entry.coverImage.url}`
-        : '/placeholder.jpg';
+    const imageUrl = getStrapiMedia(entry.coverImage?.url) || '/placeholder.jpg';
 
     return (
         <article className="travel-entry-detail container">
