@@ -1,9 +1,8 @@
-name: Deploy Frontend
+# Legacy: SSH deploy to a single server. The canonical frontend host is Vercel
+# (see DEPLOY-VERCEL.md). This workflow only runs when invoked manually.
+name: Deploy Frontend (legacy SSH)
 
 on:
-  push:
-    branches:
-      - main
   workflow_dispatch:
 
 jobs:

@@ -1,5 +1,9 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## Deployment
+
+Production hosting is documented in [DEPLOY-VERCEL.md](./DEPLOY-VERCEL.md) (Vercel + Strapi on a VPS).
+
 ## Getting Started
 
 First, run the development server:
