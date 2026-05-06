@@ -5,6 +5,8 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { getStrapiMedia } from "@/lib/helpers";
 
+export const dynamic = "force-dynamic";
+
 // Generate metadata for the page
 export async function generateMetadata({ params }) {
     const { slug } = await params;

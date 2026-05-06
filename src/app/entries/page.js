@@ -1,6 +1,8 @@
 import { fetchAPI } from "@/lib/strapi";
 import TravelEntryCard from "@/components/TravelEntryCard";
 
+export const dynamic = "force-dynamic";
+
 export const metadata = {
     title: 'Travel Activities',
     description: 'List of all travel activities',

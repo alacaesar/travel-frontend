@@ -4,6 +4,8 @@ import JourneyList from "@/components/JourneyList";
 import CountryList from "@/components/CountryList";
 import WorldMap from "@/components/WorldMap";
 
+export const dynamic = "force-dynamic";
+
 export default async function Home() {
   let entries = [];
   let journeys = [];
